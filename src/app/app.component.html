@@ -5,5 +5,15 @@
 
   <app-auth />
 
-  <p *ngIf="isAdmin()">Only admins can see</p>
+  <!-- <ng-template appAuth="admin">
+    <p>Only admins can see</p>
+  </ng-template> -->
+
+  <p *appAuth="'admin'" appLog class="protected-content admin">Only admins can see</p>
+  <p *appAuth="'user'" class="protected-content unauthenticated">
+    Reg users should see this see
+  </p>
+  <p *appAuth="'guest'" class="protected-content authenticated">
+    Guest users should see this see
+  </p>
 </main>
